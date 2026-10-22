@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+ content="width=device-width, initial-scale=1,
+ viewport-fit=cover">
+
+<meta name="theme-color" content="#1768d2">
+
+<meta name="apple-mobile-web-app-capable"
+ content="yes">
+
+<meta name="apple-mobile-web-app-title"
+ content="Quản lý tem">
+
+<title>Quản lý tem nhãn</title>
+
+<style>
+:root {
+ --blue:#1768d2;
+ --dark:#14263d;
+ --muted:#66778d;
+ --bg:#f3f6fb;
+ --line:#e2e9f2;
+ --white:#ffffff;
+}
+
+* {
+ box-sizing:border-box;
+}
+
+body {
+ margin:0;
+ background:var(--bg);
+ color:var(--dark);
+ font-family:-apple-system,BlinkMacSystemFont,
+ "Segoe UI",Arial,sans-serif;
+ -webkit-font-smoothing:antialiased;
+}
+
+header {
+ background:linear-gradient(
+  135deg,#1768d2,#438df0
+ );
+ color:white;
+ padding:calc(22px + env(safe-area-inset-top))
+  20px 32px;
+ border-radius:0 0 26px 26px;
+}
+
+.header-inner {
+ max-width:740px;
+ margin:auto;
+}
+
+.overline {
+ font-size:11px;
+ font-weight:700;
+ letter-spacing:1.3px;
+ opacity:.85;
+}
+
+h1 {
+ font-size:25px;
+ letter-spacing:-.6px;
+ margin:14px 0 9px;
+}
+
+header p {
+ margin:0;
+ font-size:13px;
+ line-height:1.6;
+ opacity:.9;
+}
+
+main {
+ max-width:740px;
+ margin:0 auto;
+ padding:22px 16px 35px;
+}
+
+.section-title {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin:0 0 15px;
+}
+
+.section-title h2 {
+ margin:0;
+ font-size:17px;
+}
+
+.section-title span {
+ font-size:12px;
+ color:var(--muted);
+}
+
+.grid {
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:13px;
+}
+
+.tile {
+ appearance:none;
+ width:100%;
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ justify-content:center;
+ gap:13px;
+ min-height:145px;
+ padding:17px;
+ border:1px solid var(--line);
+ border-radius:18px;
+ background:var(--white);
+ text-align:left;
+ box-shadow:0 3px 12px rgba(20,45,80,.035);
+ color:inherit;
+ font:inherit;
+ cursor:pointer;
+}
+
+.tile:active {
+ transform:scale(.98);
+ background:#eef5ff;
+}
+
+.icon-box {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ width:47px;
+ height:47px;
+ border-radius:14px;
+ background:#eaf2ff;
+ color:var(--blue);
+ font-size:25px;
+ font-weight:700;
+}
+
+.tile strong {
+ font-size:14px;
+ line-height:1.4;
+}
+
+.tile small {
+ display:block;
+ color:var(--muted);
+ font-size:11px;
+ line-height:1.4;
+ margin-top:-7px;
+}
+
+.tile.featured {
+ border-color:#a6c7f6;
+ background:#f9fbff;
+}
+
+.info {
+ background:white;
+ border:1px solid var(--line);
+ border-radius:16px;
+ padding:17px;
+ margin-top:22px;
+}
+
+.info-title {
+ display:flex;
+ align-items:center;
+ gap:8px;
+ font-size:14px;
+ font-weight:700;
+}
+
+.dot {
+ width:9px;
+ height:9px;
+ border-radius:50%;
+ background:#a6b2c0;
+}
+
+.info p {
+ color:var(--muted);
+ font-size:12px;
+ line-height:1.7;
+ margin:9px 0 0;
+}
+
+.notice {
+ margin-top:12px;
+ padding:12px;
+ border-radius:11px;
+ background:#fff8e9;
+ color:#805d18;
+ font-size:12px;
+ line-height:1.6;
+}
+
+footer {
+ text-align:center;
+ margin-top:25px;
+ color:#98a4b4;
+ font-size:11px;
+}
+
+dialog {
+ border:0;
+ border-radius:18px;
+ max-width:350px;
+ width:calc(100% - 36px);
+ padding:23px;
+ box-shadow:0 20px 60px #14263d33;
+}
+
+dialog::backdrop {
+ background:#0c1a2b77;
+}
+
+dialog h3 {
+ margin:0 0 10px;
+ font-size:19px;
+}
+
+dialog p {
+ color:#5c7085;
+ font-size:13px;
+ line-height:1.7;
+}
+
+.dialog-button {
+ width:100%;
+ border:0;
+ border-radius:11px;
+ padding:13px;
+ background:var(--blue);
+ color:white;
+ font-weight:700;
+ cursor:pointer;
+}
+
+@media(min-width:650px) {
+ .grid {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+ }
+}
+
+@media(max-width:380px) {
+ main {padding:16px 11px 30px}
+ .grid {gap:10px}
+ .tile {padding:13px;min-height:133px}
+ .tile strong {font-size:13px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="header-inner">
+  <div class="overline">
+   ỨNG DỤNG QUẢN LÝ SẢN XUẤT
+  </div>
+
+  <h1>Quản lý tem nhãn</h1>
+
+  <p>
+   Quản lý dữ liệu sản phẩm, in tem
+   và theo dõi hoạt động sản xuất.
+  </p>
+ </div>
+</header>
+
+<main>
+
+ <div class="section-title">
+  <h2>Chức năng ứng dụng</h2>
+  <span>6 tiện ích</span>
+ </div>
+
+ <div class="grid">
+
+  <button class="tile"
+   onclick="openFeature('nhap')">
+   <div class="icon-box">✎</div>
+   <strong>Nhập thông tin tem</strong>
+   <small>Thêm sản phẩm mới</small>
+  </button>
+
+  <button class="tile featured"
+   onclick="openFeature('quet')">
+   <div class="icon-box">▣</div>
+   <strong>Nhập bằng ảnh / QR</strong>
+   <small>Quét và nhận diện</small>
+  </button>
+
+  <button class="tile"
+   onclick="openFeature('duLieu')">
+   <div class="icon-box">▦</div>
+   <strong>Dữ liệu nhập</strong>
+   <small>Tìm kiếm · Sửa · Xóa</small>
+  </button>
+
+  <button class="tile"
+   onclick="openFeature('mauDau')">
+   <div class="icon-box">▤</div>
+   <strong>In tem Mẫu đầu</strong>
+   <small>Chuẩn bị bản in</small>
+  </button>
+
+  <button class="tile"
+   onclick="openFeature('mauCuoi')">
+   <div class="icon-box">▤</div>
+   <strong>In tem Mẫu cuối</strong>
+   <small>Chuẩn bị bản in</small>
+  </button>
+
+  <button class="tile"
+   onclick="openFeature('thongKe')">
+   <div class="icon-box">▥</div>
+   <strong>Thống kê tháng</strong>
+   <small>Báo cáo sản phẩm</small>
+  </button>
+
+ </div>
+
+ <div class="info">
+  <div class="info-title">
+   <span class="dot"></span>
+   Hệ thống quản lý dữ liệu
+  </div>
+
+  <p>
+   Giao diện web độc lập đã sẵn sàng.
+   Các tính năng nghiệp vụ sẽ được
+   kết nối lần lượt với hệ thống
+   Google Sheets hiện tại.
+  </p>
+
+  <div class="notice">
+   Bản thử nghiệm giao diện.
+   Chưa thực hiện nhập, sửa, xóa
+   hoặc truy cập dữ liệu sản phẩm.
+  </div>
+ </div>
+
+ <footer>
+  QUẢN LÝ TEM NHÃN · WEB APP
+ </footer>
+
+</main>
+
+<dialog id="featureDialog">
+ <h3>Chức năng đang nâng cấp</h3>
+
+ <p id="dialogMessage"></p>
+
+ <button class="dialog-button"
+  onclick="document.getElementById(
+   'featureDialog').close()">
+  Đã hiểu
+ </button>
+</dialog>
+
+<script>
+const features = {
+ nhap:'Nhập thông tin tem',
+ quet:'Nhập bằng ảnh / QR',
+ duLieu:'Dữ liệu nhập',
+ mauDau:'In tem Mẫu đầu',
+ mauCuoi:'In tem Mẫu cuối',
+ thongKe:'Thống kê tháng'
+};
+
+function openFeature(key) {
+ const name = features[key] ||
+  'Chức năng ứng dụng';
+
+ const dialog =
+  document.getElementById('featureDialog');
+
+ document.getElementById(
+  'dialogMessage'
+ ).textContent =
+  'Mục "' + name +
+  '" đã có trên giao diện mới. ' +
+  'Chúng ta sẽ kết nối chức năng này ' +
+  'với Google Sheets ở các phần tiếp theo. ' +
+  'Bạn vẫn có thể sử dụng app cũ ' +
+  'trong thời gian nâng cấp.';
+
+ dialog.showModal();
+}
+</script>
+
+</body>
+</html>
